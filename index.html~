@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>FFWorkGroup</title>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src='script.js'></script>
+</head>
+<body>
+
+    <div id='projects-list-view'>
+        <ul id='projects'>
+        </ul>
+    </div>
+    
+    <div id='conversation-view'>
+        <div id='messagges'>
+            <ul id='message-list'></ul>
+        </div>
+        <div>
+            <form>
+                <textarea id='message'></textarea>
+                <input type='submit' id='submit'>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
+

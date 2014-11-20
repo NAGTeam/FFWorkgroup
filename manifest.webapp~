@@ -1,0 +1,9 @@
+{
+    "name": "Merry Firefox!",
+    "description": "---",
+    "version": "0.1",
+    "developer": {
+        "name": "aroblu94"
+    },
+    "launch_path": "/index.html"
+}
