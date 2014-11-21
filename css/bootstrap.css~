@@ -3725,7 +3725,6 @@ a.label:focus {
 
 .list-group-item:hover .badge{
  background-color:#fff !important;   
- color: #337ab7;
 }
 
 .badge:empty {
