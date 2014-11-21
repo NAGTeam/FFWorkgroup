@@ -1,11 +1,11 @@
 window.onload=function(){
     //user=prompt();
     user="test";
-    console.log('start');
+    //console.log('start');
     fb = new Firebase("http://ffworkgroup.firebaseio.com");
-    console.log(fb);
+    //console.log(fb);
     currentId=null;
-    setInterval(function(){console.log(currentId);},2000);
+    //setInterval(function(){console.log(currentId);},2000);
     
     fb.on("value",function(data){
         projects=data.val();
@@ -51,6 +51,6 @@ function writeProjects(projects){
 function writeMessages(messages){
     for(id in messages){
         message=messages[id];
-        $('#message-list').prepend('<li>'+message.text+" by "+message.auth+'</li>');
+        $('#message-list').prepend('<li><div class="panel panel-default"><div class="panel-heading">'+message.auth+'says:</div><div class="panel-body">'+message.text+'</div></div></li>');
     }
 }
