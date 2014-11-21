@@ -1,40 +1,56 @@
-
-
 window.onload=function(){
+    //user=prompt();
+    user="test";
     console.log('start');
-    var fb = new Firebase("http://ffworkgroup.firebaseio.com");
+    fb = new Firebase("http://ffworkgroup.firebaseio.com");
     console.log(fb);
+    currentId=null;
+    setInterval(function(){console.log(currentId);},2000);
     
     fb.on("value",function(data){
-        prs=data.val();
+        projects=data.val();
+        $('#message-list').empty();
+        $('#projects').empty();
         
-        writePrList(prs);
+        writeProjects(projects);
+        if(currentId!=null)
+            writeMessages(projects[currentId].messages);
         
-        $(document).on('click','.links',function(){
+        
+        $(document).on('click','.project-link',function(){
             $('#message-list').empty();
-           
-            stringId=this.getAttribute('data-id');
-            id=parseInt(stringId);
-            $('#message-title').append(prs[id].name);
-            console.log(prs);
-            writeMessages(prs,id);
+            $('#message-title').empty();
+            id=this.getAttribute('data-id');
+            currentId=id;
+            $('#message-title').append(projects[id].name);
+            writeMessages(projects[id].messages);
+        });
+        
+        $('#mex-form').submit(function(){
+            console.log('message sent');
+            text=$('#message').val();
+            fb.child(currentId+'/messages').push({'auth':user,'text':text});
+        });
+        
+        $('#pr-form').submit(function(){
+            console.log('project sent');
+            name=$('#project-creator').val();
+            fb.push({'name':name,'messages':0});
         });
         
     });
 }
 
-function writePrList(projects){
-    for(i=0;i<projects.prcounter;i++){
-        project=projects[i];
-        $('#projects').append('<li><a data-id='+i+' class="links" href="#">'+project.name+'</a></li>');
+function writeProjects(projects){
+    for(id in projects){
+        project=projects[id];
+        $('#projects').append('<li><a class="project-link" href="#" data-id="'+id+'">'+project.name+'</a></li>');
     }
 }
 
-function writeMessages(projects,projectID){
-    messaggi=projects[projectID].messagges;
-    length=projects[projectID].msgcounter;
-    for(i=0;i<length;i++){
-        messaggio=messaggi[i];
-        $('#message-list').append('<li>'+messaggio.text+" by "+messaggio.auth+'</li>');
+function writeMessages(messages){
+    for(id in messages){
+        message=messages[id];
+        $('#message-list').append('<li>'+message.text+" by "+message.auth+'</li>');
     }
 }
