@@ -2,22 +2,32 @@ user="";
 window.onload=function(){
     
    
-    console.log(localStorage.getItem('user'));
-    if(localStorage.getItem('user')==null){
-        console.log('here');
-        $('#splashscreen').addClass('show');
-        $('#splashscreen').removeClass('hidden');
-    }else{
-        user=localStorage.getItem('user');
-        $('#projects-list-view').addClass('show');
-        $('#projects-list-view').removeClass('hidden');
-    }
+    localforage.getItem('user', function (err, value) {
+            if (err) {
+                return err;
+            }
+            console.log(value);
+    });
+    localforage.getItem('user', function (err, value) {
+        if (err) {
+            return err;
+        }
+        if (!value) {
+            console.log('here');
+            $('#splashscreen').addClass('show');
+            $('#splashscreen').removeClass('hidden');
+        }else {
+            user=value;
+            $('#projects-list-view').addClass('show');
+            $('#projects-list-view').removeClass('hidden');
+        }
+    });
 
     
     $('#user-input').submit(function(){
          if($('#user').val()!=""){
             user=$('#user').val();
-            localStorage.setItem('user',user);
+            localforage.setItem('user',user,null);
             
             $('#splashscreen').addClass('hidden');
             $('#splashscreen').removeClass('show');

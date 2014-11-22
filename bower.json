@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "~3.3.1",
     "concierge": "~1.0.0",
-    "firebase": "~2.0.4"
+    "firebase": "~2.0.4",
+    "localforage": "~1.2.0"
   }
 }
