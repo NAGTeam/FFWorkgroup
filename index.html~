@@ -89,7 +89,7 @@
             </div>
             <div>
                 <form id='mex-form'>
-                    <input type='text' id='message'>
+                    <textarea id='message'></textarea>
                     <input type='submit' id='submit-mex' value='send'>
                 </form>
             </div>

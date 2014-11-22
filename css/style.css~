@@ -1,8 +1,3 @@
-#wrapper{
-        margin:5%;
-        background-color:#eee;
-    }
-
 .hidden{
     display:none;
 }
@@ -11,8 +6,14 @@
     display:static;
 }
 
-.container{
+.jumbotron{
+    background-color:#dadfe1 !important; /*#dadfe1*/
+    min-height:90% !important;
     margin-top:20px;
+}
+
+body{
+    background-color:#6c7a89 !important;
 }
 
 h1{
@@ -25,18 +26,35 @@ h1{
 }
 
 #name{
-    width:300px;
+    width:100%;
 }
 
 #messages{
-    max-height:300px;
     overflow-x:hidden;
     overflow-y:scroll;
 }
 
-#user{
-    width:300px;
-    }
+#input-group{
+    width:200px;
+    margin:5px 0;
+}
+
+#user-submit{
+    width: 60px !important;
+}
+
+#submit-mex{
+    margin:5px 0;
+}
+
+input[type="submit"]{
+    color:white;
+    border-color:#a94442;
+    background:#a94442;
+    height:30px;
+    width:100%;
+    border-radius:10px;
+}
 
 .pr-desc{
     display:inline-block;
@@ -64,14 +82,17 @@ h1{
 .list-group-item{
     margin:10px !important;
     display:inline-block !important;
+    border:1px solid #aaa !important;
+    border-radius:5px !important;
 }
 
 .mex{
-    max-width:300px !important;
+    min-width:300px;
 }
 
 #message{
-    width:300px;
+    width:100%;
+    margin:5px 0;
 }
 
 .head-menu{

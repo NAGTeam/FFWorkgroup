@@ -1,7 +1,7 @@
 user="";
 window.onload=function(){
     
-    
+   
     console.log(localStorage.getItem('user'));
     if(localStorage.getItem('user')==null){
         console.log('here');
@@ -95,7 +95,8 @@ window.onload=function(){
         $('#mex-form').submit(function(){
             console.log('message sent');
             text=$('#message').val();
-            fb.child(currentId+'/messages').push({'auth':user,'text':text});
+            if(text!="")
+                fb.child(currentId+'/messages').push({'auth':user,'text':text});
             resetInput();
         });
         
@@ -103,13 +104,15 @@ window.onload=function(){
             console.log('project sent');
             description=$('#project-creator').val();
             name=$('#name').val();
-            fb.push({'name':name,'description':description,'messages':0});
-            $('#new-project').addClass('hidden');
-            $('#new-project').removeClass('show');
-            
-            $('#projects-list-view').addClass('show');
-            $('#projects-list-view').removeClass('hidden');
-            resetInput();
+            if((name!="")&&(description!="")){
+                fb.push({'name':name,'description':description,'messages':0});
+                $('#new-project').addClass('hidden');
+                $('#new-project').removeClass('show');
+                
+                $('#projects-list-view').addClass('show');
+                $('#projects-list-view').removeClass('hidden');
+                resetInput();
+            }
         });
         
     
@@ -130,20 +133,9 @@ function writeProjects(projects){
 }
 
 function writeMessages(messages){
-    counter=0;
     for(id in messages){
         message=messages[id];
-        
-        switch(counter){
-            case 0:$('#message-list').append('<div class="mex panel panel-success"><div class="panel-heading">'+message.auth+' says:</div><div class="panel-body">'+message.text+'</div></div>');break;
-            
-            case 1:$('#message-list').append('<div class="mex panel panel-info"><div class="panel-heading">'+message.auth+' says:</div><div class="panel-body">'+message.text+'</div></div>');break;
-            
-            case 2:$('#message-list').append('<div class="mex panel panel-warning"><div class="panel-heading">'+message.auth+' says:</div><div class="panel-body">'+message.text+'</div></div>');break;
-            
-            case 3:$('#message-list').append('<div class="mex panel panel-danger"><div class="panel-heading">'+message.auth+' says:</div><div class="panel-body">'+message.text+'</div></div>');break;
-        }
-        counter=(counter+1)%4;
+        $('#message-list').append('<div class="mex panel panel-info"><div class="panel-heading">'+message.auth+' says:</div><div class="panel-body">'+message.text+'</div></div>');
     }
 }
 
