@@ -1,3 +1,6 @@
 # Temporary files added by editors
 *~
 *.swp
+
+# Libraries imported via bower
+bower_components/
