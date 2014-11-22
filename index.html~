@@ -14,7 +14,7 @@
 <body>
     <div class='container'>
         
-        <div id='splashscreen' class='jumbotron show'>
+        <div id='splashscreen' class='jumbotron hidden'>
             <h1>Welcome to FFOpen Projects</h1>
             <p>insert you nickname and join the discussions</p>
             <form id='user-input'>
@@ -85,12 +85,12 @@
                 </div>
             </div>
             <div id='messagges'>
-                <ul id='message-list'></ul>
+                <div id='message-list'></div>
             </div>
             <div>
                 <form id='mex-form'>
-                    <textarea id='message'></textarea>
-                    <input type='submit' id='submit-mex'>
+                    <input type='text' id='message'>
+                    <input type='submit' id='submit-mex' value='send'>
                 </form>
             </div>
         </div>

@@ -1,9 +1,10 @@
 {
-    "name": "FFWorkgroup",
-    "description": "---",
-    "version": "0.1",
+    "name": "FFOpen Projects",
+    "description": "join public discussions and develop Open Projects based on collaboration. In latin there is a famous quote that says:'divide et impera', which means  don't let people cooperate and controlling them will be easier. Collaboration give as power as a community of peers, the power of a Open Web",
+    "version": "0.6",
+    "type":"web",
     "developer": {
-        "name": "aroblu94"
+        "name": "nicokant"
     },
-    "launch_path": "/index.html"
-}
+    "launch_path": "/FFWorkgroup/index.html"
+} 

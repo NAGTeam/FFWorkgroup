@@ -29,7 +29,7 @@ h1{
 }
 
 #messages{
-    height:60%;
+    max-height:300px;
     overflow-x:hidden;
     overflow-y:scroll;
 }
@@ -64,6 +64,14 @@ h1{
 .list-group-item{
     margin:10px !important;
     display:inline-block !important;
+}
+
+.mex{
+    max-width:300px !important;
+}
+
+#message{
+    width:300px;
 }
 
 .head-menu{

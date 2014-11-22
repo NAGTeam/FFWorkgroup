@@ -66,6 +66,15 @@ h1{
     display:inline-block !important;
 }
 
+.mex{
+    max-width:300px !important;
+    min-width:200px;
+}
+
+#message{
+    width:300px;
+}
+
 .head-menu{
     float:right;
     margin-right:5px;
