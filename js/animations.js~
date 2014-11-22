@@ -1,0 +1,10 @@
+window.onload=function(){
+
+    $(document).on('click','.back',function(){
+        $('#conversation-view').addClass('hidden');
+        $('#conversation-view').removeClass('show');
+        
+        $('#projects-list-view').addClass('show');
+        $('#projects-list-view').removeClass('hidden');
+    });
+}
