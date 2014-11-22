@@ -40,6 +40,12 @@ window.onload=function(){
         $('#message-list').empty();
         $('#projects').empty();
         
+        resetInput();
+       
+        $('#message').val("");
+        $('#name').val("");
+        $('#project-creator').val("");
+        
         writeProjects(projects);
         if(currentId!=null)
             writeMessages(projects[currentId].messages);
@@ -54,12 +60,14 @@ window.onload=function(){
             
             $('#projects-list-view').addClass('show');
             $('#projects-list-view').removeClass('hidden');
+            
+            resetInput();
+            
         });
         
         
         $(document).on('click','.new',function(){
-            $('#name').val("");
-            $('#project-creator').val("");
+            resetInput();
             $('#new-project').addClass('show');
             $('#new-project').removeClass('hidden');
             
@@ -73,6 +81,7 @@ window.onload=function(){
             $('#message-title').empty();
             id=this.getAttribute('data-id');
             currentId=id;
+            resetInput();
             $('#message-title').append(projects[id].name);
             writeMessages(projects[id].messages);
             
@@ -87,7 +96,7 @@ window.onload=function(){
             console.log('message sent');
             text=$('#message').val();
             fb.child(currentId+'/messages').push({'auth':user,'text':text});
-            $('#message').val("");
+            resetInput();
         });
         
         $('#pr-form').submit(function(){
@@ -100,6 +109,7 @@ window.onload=function(){
             
             $('#projects-list-view').addClass('show');
             $('#projects-list-view').removeClass('hidden');
+            resetInput();
         });
         
     
@@ -135,4 +145,12 @@ function writeMessages(messages){
         }
         counter=(counter+1)%4;
     }
+}
+
+
+function resetInput(){
+    $('#message').val("");
+    $('#name').val("");
+    $('#project-creator').val("");
+
 }
