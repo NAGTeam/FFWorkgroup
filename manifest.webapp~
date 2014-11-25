@@ -6,11 +6,12 @@
     "developer": {
         "name": "NAGTeam"
     },
-    "launch_path": "/FFWorkgroup/index.html",
     "icons":{
-        "128":" ",
-        "64":""
-     }
+        "128":"src/128.png",
+        "64":"src/64.png"
+     },
+    "launch_path": "/index.html"
+    
 } 
 
 
