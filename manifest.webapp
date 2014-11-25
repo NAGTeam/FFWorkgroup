@@ -7,8 +7,8 @@
         "name": "NAGTeam"
     },
     "icons":{
-        "128":"src/icon128.png",
-        "64":"src/icon64.png"
+        "128":"/FFWorkgroup/src/icon128.png",
+        "64":"/FFWorkgroup/src/icon64.png"
      },
     "launch_path": "/FFWorkgroup/index.html"
     
