@@ -8,8 +8,8 @@
     },
     "launch_path": "/FFWorkgroup/index.html",
     "icons":{
-        "128":"src/128.png",
-        "64":"src/64.png"
+        "128":" ",
+        "64":""
      }
 } 
 
